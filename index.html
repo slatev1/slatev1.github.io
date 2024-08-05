@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slate Web Designers</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle login simulation
+            if (window.location.pathname.endsWith('login.html')) {
+                document.getElementById('loginForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // Simulate login
+                    window.location.href = 'dashboard.html';
+                });
+            }
+
+            // Handle signup simulation
+            if (window.location.pathname.endsWith('signup.html')) {
+                document.getElementById('signupForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    // Simulate signup
+                    window.location.href = 'dashboard.html';
+                });
+            }
+
+            // Show the relevant page based on the URL path
+            const path = window.location.pathname;
+            if (path.endsWith('login.html')) {
+                document.getElementById('loginPage').style.display = 'block';
+            } else if (path.endsWith('signup.html')) {
+                document.getElementById('signupPage').style.display = 'block';
+            } else if (path.endsWith('dashboard.html')) {
+                document.getElementById('dashboardPage').style.display = 'block';
+            } else {
+                document.getElementById('homePage').style.display = 'block';
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Slate Web Designers</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Home Page Content -->
+        <div id="homePage" style="display:none;">
+            <h2>Welcome to Slate Web Designers</h2>
+            <p>Please log in or sign up to get started.</p>
+        </div>
+
+        <!-- Login Page Content -->
+        <div id="loginPage" style="display:none;">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="loginEmail">E-Mail:</label>
+                <input type="email" id="loginEmail" name="email" required>
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+
+        <!-- Signup Page Content -->
+        <div id="signupPage" style="display:none;">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <label for="signupEmail">E-Mail:</label>
+                <input type="email" id="signupEmail" name="email" required>
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" name="password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+
+        <!-- Dashboard Page Content -->
+        <div id="dashboardPage" style="display:none;">
+            <h2>Dashboard</h2>
+            <form id="websiteForm">
+                <label for="websiteAbout">What is your website about:</label>
+                <textarea id="websiteAbout" name="websiteAbout" required></textarea>
+
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="company">Name of Company/Website:</label>
+                <input type="text" id="company" name="company" required>
+
+                <button type="submit">Submit</button>
+            </form>
+            <p>We will reach out to you soon to create your website.</p>
+        </div>
+    </main>
+</body>
+</html>
